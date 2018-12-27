@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
             return state;
         case actionTypes.FETCH_PLAYERS_SUCCESS:
             state.dataPlayer = action.payload.player
-            return state;
+            return {...state, loading: true};
         case actionTypes.FETCH_PLAYERS_FAIL:
             state.dataPlayer = action.payload.player
             return {...state, error: true};
