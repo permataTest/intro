@@ -9,10 +9,21 @@ class Players extends Component {
   }
 
   render() {
+    let card = <h1>Loading......!!!!</h1>
+    if(this.props.loading){
+        card = this.props.players.map(player => (
+          <Card 
+              key={player.idPlayer}
+              data={player}>
+          </Card>
+        )
+      );
+    }
+
     return (
-      <div>
+      <div className="container">
         <h1>Players</h1>
-        <Card data={this.props.players}></Card>
+        {card}
       </div>
     )
   }
