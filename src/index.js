@@ -9,10 +9,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import playerReducer from './store/reducer/players';
+import homeReducer from './store/reducer/home';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
-    players: playerReducer
+    players: playerReducer,
+    homes : homeReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(

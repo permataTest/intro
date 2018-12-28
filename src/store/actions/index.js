@@ -5,3 +5,6 @@ export {
 export {
     deleteDataPlayer
 } from './deletePlayers';
+export {
+    getDataHome
+} from './home';
