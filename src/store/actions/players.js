@@ -8,6 +8,7 @@ export const playerStart = () =>{
 };
 
 export const playerSuccess = (players) =>{
+    console.log("dataa",players)
     return{
         type: actionTypes.FETCH_PLAYERS_SUCCESS,
         payload: players
@@ -29,12 +30,12 @@ export const getDataPlayers = () => {
             url: 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=Arsenal'
         })
         .then (res =>{
-            console.log(res.data);
-            dispatch(playerSuccess(res.data))
+            //console.log(res.data);
+            dispatch(playerSuccess(res.data.player))
             
         })
         .catch(error =>{
-            console.log(error);
+           // console.log(error);
             dispatch(playerFail(error))
         });
     }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const gambar = (props) => {
     return (
-    <img src={props.image} alt="gambar"></img>
+    <img src={props.image} alt="gambar"/>
     )
 }
 
