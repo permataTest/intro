@@ -8,13 +8,20 @@ class Players extends Component {
     this.props.dataPlayers();
   }
 
+  removePlayer = (data, id) => {
+    this.props.deletePlayers(data, id)
+  }
+
   render() {
+    console.log('render');
+    
     let card = <h1>Loading......!!!!</h1>
     if(this.props.loading){
         card = this.props.players.map(player => (
           <Card 
               key={player.idPlayer}
-              data={player}>
+              data={player}
+              delete={() => this.removePlayer(this.props.players, player.idPlayer)}>
           </Card>
         )
       );
@@ -30,6 +37,8 @@ class Players extends Component {
 }
 
 const mapStateToProps = state =>{
+  console.log(state.players.dataPlayer);
+  
     return {
         players: state.players.dataPlayer,
         error: state.players.error,
@@ -39,7 +48,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch => {
     return {
-      dataPlayers : () => dispatch(action.getDataPlayers())
+      dataPlayers : () => dispatch(action.getDataPlayers()),
+      deletePlayers : (data, id) => dispatch(action.deleteDataPlayer(data, id))
     };
 };
 
